@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>MastiTrack | AI-Based Early Mastitis Forecasting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">🐄</span><span>Masti<span>Track</span></span></a>
+    <nav id="nav">
+      <a href="#home">Home</a><a href="#problem">Problem</a><a href="#solution">Solution</a>
+      <a href="#dashboard">Dashboard</a><a href="#technology">Technology</a><a href="#impact">Impact</a>
+      <a href="#references">References</a>
+    </nav>
+    <button class="menu-btn" aria-label="Open menu">☰</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse"></span> SMART INDIA HACKATHON 2026 · SIH26109</div>
+        <h1>Early warning for<br><span>healthier dairy herds.</span></h1>
+        <p class="lead">MastiTrack is a proposed low-cost IoT + AI system for early forecasting of bovine mastitis using milk conductivity and temperature trends.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#dashboard">Open Live Demo <span>→</span></a>
+          <a class="btn ghost" href="#solution">Explore Solution</a>
+        </div>
+        <div class="mini-stats">
+          <div><strong>₹300–500</strong><small>proposed target cost*</small></div>
+          <div><strong>3 Levels</strong><small>Low · Medium · High</small></div>
+          <div><strong>4 Quarters</strong><small>per-quarter concept</small></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="orb orb1"></div><div class="orb orb2"></div>
+        <div class="cow-card">
+          <div class="cow-art">🐄</div>
+          <div class="scan-line"></div>
+          <div class="sensor-chip chip-a"><b>EC</b><span>Conductivity</span></div>
+          <div class="sensor-chip chip-b"><b>°C</b><span>Temperature</span></div>
+          <div class="risk-ring"><span>LOW</span><small>Current risk</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="section">
+      <div class="section-head reveal"><span class="eyebrow">01 · THE PROBLEM</span><h2>Detect risk <span>before it becomes visible.</span></h2><p>Mastitis can affect milk production, animal welfare and farm economics. MastiTrack focuses on an early-warning workflow.</p></div>
+      <div class="cards three">
+        <article class="info-card reveal"><div class="icon">🔎</div><h3>Late detection</h3><p>The project targets forecasting before obvious visible symptoms appear.</p></article>
+        <article class="info-card reveal"><div class="icon">🥛</div><h3>Milk quality & yield</h3><p>Early identification can help reduce production loss and support timely action.</p></article>
+        <article class="info-card reveal"><div class="icon">👨‍🌾</div><h3>Smallholder focus</h3><p>The proposed design is intended for smallholder farms and low-cost deployment.</p></article>
+      </div>
+    </section>
+
+    <section id="solution" class="section alt">
+      <div class="section-head reveal"><span class="eyebrow">02 · PROPOSED SOLUTION</span><h2>From milk readings to a <span>risk alert.</span></h2></div>
+      <div class="flow">
+        <div class="flow-item reveal"><b>01</b><span class="flow-icon">🧪</span><h3>Measure</h3><p>Conductivity + temperature per udder quarter.</p></div>
+        <div class="arrow">→</div>
+        <div class="flow-item reveal"><b>02</b><span class="flow-icon">📡</span><h3>Collect</h3><p>ESP32 collects and transmits sensor readings.</p></div>
+        <div class="arrow">→</div>
+        <div class="flow-item reveal"><b>03</b><span class="flow-icon">🤖</span><h3>Predict</h3><p>ML model scores Low / Medium / High risk.</p></div>
+        <div class="arrow">→</div>
+        <div class="flow-item reveal"><b>04</b><span class="flow-icon">🚨</span><h3>Alert</h3><p>Dashboard/SMS concept provides a farmer alert.</p></div>
+      </div>
+      <div class="note reveal"><strong>Innovation:</strong> the proposal emphasizes rising conductivity trends and per-quarter monitoring rather than only a single threshold alert.</div>
+    </section>
+
+    <section id="dashboard" class="section">
+      <div class="section-head dashboard-head reveal"><div><span class="eyebrow">03 · LIVE DEMO</span><h2>MastiTrack <span>Risk Dashboard</span></h2><p>This is a browser simulation for your SIH demonstration. It does not claim to diagnose an animal.</p></div><button id="simulateBtn" class="btn primary">Simulate Reading ↻</button></div>
+      <div class="dashboard-grid">
+        <div class="panel main-reading reveal">
+          <div class="panel-title"><span>Current system status</span><span class="live"><i></i> DEMO LIVE</span></div>
+          <div class="risk-main"><div id="riskRing" class="big-ring low"><strong id="riskLabel">LOW</strong><small>risk level</small></div><div><div class="score-label">Risk score</div><div class="score"><span id="riskScore">18</span><small>/100</small></div><p id="riskMessage">Current simulated readings are within the low-risk demo range.</p></div></div>
+          <div class="meter"><div id="meterFill"></div></div>
+          <div class="risk-legend"><span><i class="low-dot"></i> Low 0–39</span><span><i class="mid-dot"></i> Medium 40–69</span><span><i class="high-dot"></i> High 70–100</span></div>
+        </div>
+        <div class="panel sensor-panel reveal">
+          <div class="panel-title"><span>Sensor readings</span><span id="timeStamp">--:--:--</span></div>
+          <div class="sensor-grid">
+            <div class="sensor-value"><span>Milk conductivity</span><strong><span id="ecValue">3.20</span> <small>mS/cm*</small></strong><em id="ecTrend">stable</em></div>
+            <div class="sensor-value"><span>Temperature</span><strong><span id="tempValue">37.1</span> <small>°C*</small></strong><em>compensated</em></div>
+            <div class="sensor-value"><span>Udder quarter</span><strong id="quarterValue">Q1</strong><em>per-quarter concept</em></div>
+            <div class="sensor-value"><span>Data link</span><strong>ESP32</strong><em class="ok">connected (demo)</em></div>
+          </div>
+        </div>
+        <div class="panel chart-panel reveal">
+          <div class="panel-title"><span>Conductivity trend</span><span class="badge">SIMULATED</span></div>
+          <canvas id="trendChart" height="180"></canvas>
+        </div>
+        <div class="panel alerts-panel reveal">
+          <div class="panel-title"><span>Alerts & events</span><span id="alertCount" class="badge">0</span></div>
+          <div id="alertsList" class="alerts-list"><div class="empty">No alerts in this demo session.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology" class="section alt">
+      <div class="section-head reveal"><span class="eyebrow">04 · TECHNICAL APPROACH</span><h2>Simple hardware. <span>Lightweight intelligence.</span></h2></div>
+      <div class="tech-grid">
+        <article class="tech-card reveal"><span>🔧</span><h3>Hardware</h3><p>ESP32 microcontroller</p><p>EC / conductivity sensor probe</p><p>DS18B20 temperature sensor</p></article>
+        <article class="tech-card reveal"><span>🧠</span><h3>Machine Learning</h3><p>Logistic Regression</p><p>Decision Tree classifier</p><p>Risk scoring: Low / Medium / High</p></article>
+        <article class="tech-card reveal"><span>💻</span><h3>Software</h3><p>Python (Flask) / Node.js concept</p><p>SQLite / Firebase concept</p><p>HTML/JS or Streamlit dashboard</p></article>
+        <article class="tech-card reveal"><span>📲</span><h3>Alert Layer</h3><p>Dashboard status</p><p>SMS integration concept</p><p>Designed for low-connectivity contexts</p></article>
+      </div>
+      <div class="architecture reveal"><div>🧪 Sensors</div><span>→</span><div>📡 ESP32</div><span>→</span><div>🗃️ Data</div><span>→</span><div>🤖 ML</div><span>→</span><div>🚨 Risk Alert</div></div>
+    </section>
+
+    <section id="feasibility" class="section">
+      <div class="section-head reveal"><span class="eyebrow">05 · FEASIBILITY</span><h2>Designed around <span>real-world constraints.</span></h2></div>
+      <div class="challenge-grid">
+        <article class="challenge reveal"><span>01</span><h3>Sensor fouling</h3><p>Milk fat can affect readings and cause fouling.</p><strong>Response → Regular probe cleaning + durable, food-safe electrode design.</strong></article>
+        <article class="challenge reveal"><span>02</span><h3>Temperature variation</h3><p>Farm-level temperature changes can distort raw readings.</p><strong>Response → Built-in temperature compensation concept.</strong></article>
+        <article class="challenge reveal"><span>03</span><h3>Limited labelled data</h3><p>Healthy vs infected real-world labels are needed for training.</p><strong>Response → Proposed partnerships with veterinary colleges/dairy cooperatives.</strong></article>
+        <article class="challenge reveal"><span>04</span><h3>Farmer adoption</h3><p>A new rural technology needs trust and usability.</p><strong>Response → Simple vernacular interface + demonstrations.</strong></article>
+      </div>
+    </section>
+
+    <section id="impact" class="section alt">
+      <div class="section-head reveal"><span class="eyebrow">06 · IMPACT & BENEFITS</span><h2>Built around the <span>farmer.</span></h2></div>
+      <div class="impact-grid">
+        <div class="impact-big reveal"><div class="impact-number">₹</div><h3>Economic</h3><p>Potentially reduce milk yield loss and veterinary treatment costs by supporting earlier action.</p></div>
+        <div class="impact-big reveal"><div class="impact-number">🐄</div><h3>Animal welfare</h3><p>Earlier risk identification can support timely veterinary attention.</p></div>
+        <div class="impact-big reveal"><div class="impact-number">🌱</div><h3>Sustainability</h3><p>The proposal connects earlier detection with reduced unnecessary antibiotic use.</p></div>
+        <div class="impact-big reveal"><div class="impact-number">📈</div><h3>Scalability</h3><p>Low-cost design can support wider deployment, including cooperative/shared-device models.</p></div>
+      </div>
+    </section>
+
+    <section id="references" class="section">
+      <div class="section-head reveal"><span class="eyebrow">07 · RESEARCH & REFERENCES</span><h2>Science behind <span>MastiTrack.</span></h2></div>
+      <div class="refs">
+        <a class="ref-card reveal" target="_blank" href="https://epubs.icar.org.in/index.php/IJAPM/article/view/67286"><span>01</span><div><h3>Sharma et al.</h3><p>Evaluation of Electric Conductivity and Milk Lactose as a Pre-Indicator of Mastitis in Tharparkar Dairy Cattle.</p><small>ICAR ePubs ↗</small></div></a>
+        <a class="ref-card reveal" target="_blank" href="https://shop.fil-idf.org/products/evaluation-of-the-electrical-conductivity-of-milk-as-a-mastitis-indicator"><span>02</span><div><h3>Hamann & Zecconi (1998)</h3><p>Evaluation of the Electrical Conductivity of Milk as a Mastitis Indicator.</p><small>IDF Bulletin No. 334/1998 ↗</small></div></a>
+        <a class="ref-card reveal" target="_blank" href="https://how2electronics.com/iot-based-drinking-water-quality-monitoring-with-esp32/"><span>03</span><div><h3>How2Electronics</h3><p>IoT-based ESP32 sensing with TDS/conductivity and DS18B20 temperature-compensation method.</p><small>Technical reference ↗</small></div></a>
+        <div class="ref-card reveal"><span>04</span><div><h3>Dua (2001)</h3><p>Economic Losses due to Mastitis in India, cited in ICAR / Indian Journal of Animal Sciences.</p><small>Reference listed in the SIH PPT</small></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><a class="brand" href="#home"><span class="brand-mark">🐄</span><span>Masti<span>Track</span></span></a><p>SIH2026 · NEXUS · SIH26109</p></div>
+    <p>Prototype demonstration website · Sensor values shown here are simulated.</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
